@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import MissionsView from './components/MissionsView';
 import Rockets from './components/Rockets';
+import MyProfile from './components/MyProfile';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MissionsView />} />
         <Route path="/Rockets" element={<Rockets />} />
+        <Route path="/MyProfile" element={<MyProfile />} />
       </Routes>
     </div>
   );

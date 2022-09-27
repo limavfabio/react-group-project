@@ -8,3 +8,19 @@ li {
   padding: 0;
   list-style: none;
 }
+
+.links {
+  color: skyblue;
+  text-decoration: none;
+}
+
+.links:focus {
+  color: red;
+  text-decoration: underline;
+}
+
+.links:active {
+  color: #fff;
+  background-color: #000;
+  text-decoration: underline;
+}
