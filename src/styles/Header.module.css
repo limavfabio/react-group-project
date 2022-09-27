@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+}
+
+.logo {
+  height: 5rem;
+}
+
+.title {
+  margin-left: 2rem;
+}
+
+.ul {
+  margin-left: auto;
+  margin-right: 3rem;
+  gap: 1rem;
+  align-items: center;
+  display: flex;
+}
