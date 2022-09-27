@@ -25,8 +25,15 @@ function MissionList() {
             Adulyadej, as a symbol of the linkage between Thailand and modern
             communications technology.
           </td>
-          <td>Mission status</td>
-          <td>Status Action</td>
+          <td>
+            {' '}
+            <div className={style.statusNotMember}>NOT A MEMBER</div>
+          </td>
+          <td>
+            <button className={style.joinBtn} type="button">
+              Join Mission
+            </button>
+          </td>
         </tr>
         <tr className={style.tableRow}>
           <td>Thaicom</td>
@@ -40,8 +47,14 @@ function MissionList() {
             Adulyadej, as a symbol of the linkage between Thailand and modern
             communications technology.
           </td>
-          <td>Mission status</td>
-          <td>Status Action</td>
+          <td>
+            <div className={style.statusNotMember}>NOT A MEMBER</div>
+          </td>
+          <td>
+            <button className={style.joinBtn} type="button">
+              Join Mission
+            </button>
+          </td>
         </tr>
         <tr className={style.tableRow}>
           <td>Thaicom</td>
@@ -55,8 +68,15 @@ function MissionList() {
             Adulyadej, as a symbol of the linkage between Thailand and modern
             communications technology.
           </td>
-          <td>Mission status</td>
-          <td>Status Action</td>
+          <td>
+            {' '}
+            <div className={style.statusNotMember}>NOT A MEMBER</div>
+          </td>
+          <td>
+            <button className={style.joinBtn} type="button">
+              Join Mission
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
