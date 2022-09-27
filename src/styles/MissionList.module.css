@@ -1,0 +1,14 @@
+.tableRow:nth-child(odd) {
+  background-color: lightgray;
+}
+
+table {
+  margin: 2rem auto;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid gray;
+  padding: 0.5rem;
+}
