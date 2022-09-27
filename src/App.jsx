@@ -11,8 +11,8 @@ function App() {
     <div className="header-container">
       <Header />
       <Routes>
-        <Route path="/" element={<MissionsView />} />
-        <Route path="/Rockets" element={<Rockets />} />
+        <Route path="/MissionsView" element={<MissionsView />} />
+        <Route path="/" element={<Rockets />} />
         <Route path="/MyProfile" element={<MyProfile />} />
       </Routes>
     </div>
