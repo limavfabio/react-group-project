@@ -1,5 +1,5 @@
 import React from 'react';
-import MissionList from './MissionList';
+import MissionList from '../components/MissionList';
 
 function MissionsView() {
   return <MissionList />;

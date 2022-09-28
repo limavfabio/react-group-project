@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Rockets() {
+function RocketsView() {
   return <div>Rockets Component</div>;
 }
 
-export default Rockets;
+export default RocketsView;
