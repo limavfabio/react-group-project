@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import MissionsView from './views/MissionsView';
+import './App.css';
+import { useDispatch } from 'react-redux';
+import { showMissions } from './redux/Missions/missionsReducer';
 import RocketsView from './views/RocketsView';
 import MyProfile from './views/MyProfile';
-import './App.css';
+import MissionsView from './views/MissionsView';
+import Header from './components/Header';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(showMissions());
+  }, []);
+
   return (
     <div className="header-container">
       <Header />
