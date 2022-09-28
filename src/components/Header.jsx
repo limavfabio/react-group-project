@@ -10,14 +10,20 @@ function Header() {
       <h2 className={style.title}>Space Travelers Hub</h2>
       <ul className={style.ul}>
         <li className={style.li}>
-          <NavLink className="links" to="/Rockets">Rockets</NavLink>
+          <NavLink className="links" to="/">
+            Rockets
+          </NavLink>
         </li>
         <li>
-          <NavLink className="links" to="/">Missions</NavLink>
+          <NavLink className="links" to="/MissionsView">
+            Missions
+          </NavLink>
         </li>
         <span className={style.separator}>|</span>
         <li>
-          <NavLink className="links" to="/MyProfile">My Profile</NavLink>
+          <NavLink className="links" to="/MyProfile">
+            My Profile
+          </NavLink>
         </li>
       </ul>
     </div>
