@@ -1,18 +1,11 @@
 /* eslint-disable import/no-named-as-default */
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { reserved } from '../app/rockets/rockets';
 
-const state = {
-  id: '',
-  rocket_name: '',
-  description: '',
-  flickr_images: '',
-};
-
 function RocketsView() {
   const dispatch = useDispatch();
-  const [rocket, setRocket] = useState(state);
+  // const [rocket, setRocket] = useState(state);
   const selectors = useSelector((state) => state.rockets);
   const handleClick = (id) => {
     const newState = selectors.map((rocket) => {
@@ -22,12 +15,13 @@ function RocketsView() {
       return { ...rocket, reserved: true };
     });
 
-    setRocket(() => ({
-      ...rocket,
-      newState,
-    }));
+    // setRocket(() => ({
+    //   ...rocket,
+    //   newState,
+    // }));
     dispatch(reserved(newState));
   };
+  // console.log(rocket);
 
   return (
     <section>
@@ -45,7 +39,9 @@ function RocketsView() {
                 type="button"
                 onClick={() => handleClick(eachRocket.id)}
               >
-                Reserve Rocket
+                {
+                  eachRocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'
+                }
               </button>
             </div>
           </div>
