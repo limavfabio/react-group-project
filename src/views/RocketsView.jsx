@@ -1,11 +1,10 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reserved } from '../redux/rockets/rockets';
+import { reserved, cancelReservation } from '../redux/rockets/rockets';
 
 function RocketsView() {
   const dispatch = useDispatch();
-  // const [rocket, setRocket] = useState(state);
   const selectors = useSelector((state) => state.rockets);
   const handleClick = (id) => {
     const newState = selectors.map((rocket) => {
@@ -15,13 +14,16 @@ function RocketsView() {
       return { ...rocket, reserved: true };
     });
 
-    // setRocket(() => ({
-    //   ...rocket,
-    //   newState,
-    // }));
+    const cancelState = selectors.map((rocket) => {
+      if (rocket.id !== id) {
+        return rocket;
+      }
+      return { ...rocket, reserved: false };
+    });
+
     dispatch(reserved(newState));
+    dispatch(cancelReservation(cancelState));
   };
-  // console.log(rocket);
 
   return (
     <section>
