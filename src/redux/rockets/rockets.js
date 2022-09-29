@@ -4,6 +4,7 @@ import axios from 'axios';
 // Action Types
 const GET_ROCKETS = 'react-group-project/rockets/GET_ROCKETS';
 const RESERVED = 'react-group-project/rockets/RESERVED';
+const CANCEL_RESERVATION = 'react-group-project/rockets/CANCEL_RESERVATION';
 const baseURL = 'https://api.spacexdata.com/v3/rockets';
 const rockets = [];
 
@@ -39,6 +40,11 @@ export const reserved = (payload) => ({
   payload,
 });
 
+export const cancelReservation = (payload) => ({
+  type: CANCEL_RESERVATION,
+  payload,
+});
+
 // Rockets Reducer
 function rocketsReducer(state = rockets, action) {
 //   console.log(state);
@@ -48,6 +54,8 @@ function rocketsReducer(state = rockets, action) {
     case (GET_ROCKETS):
       return action.payload;
     case (RESERVED):
+      return [...state.filter((id) => id !== action.payload)];
+    case (CANCEL_RESERVATION):
       return [...state.filter((id) => id !== action.payload)];
     default:
       return state;
