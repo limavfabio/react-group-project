@@ -29,7 +29,7 @@ const MissionList = () => {
               {!e.reserved ? (
                 <div className={style.statusNotMember}>NOT A MEMBER</div>
               ) : (
-                <div className={style.statusNotMember}>YES A MEMBER</div>
+                <div className={style.statusActiveMember}>Active Member</div>
               )}
             </td>
             <td>
@@ -45,7 +45,7 @@ const MissionList = () => {
                 </button>
               ) : (
                 <button
-                  className={style.joinBtn}
+                  className={style.leaveBtn}
                   onClick={() => {
                     handleMission(e.mission_id);
                   }}
