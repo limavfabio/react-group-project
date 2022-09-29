@@ -1,7 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reserved } from '../app/rockets/rockets';
+import { reserved } from '../redux/rockets/rockets';
 
 function RocketsView() {
   const dispatch = useDispatch();
@@ -25,28 +25,24 @@ function RocketsView() {
 
   return (
     <section>
-      {
-        selectors.map((eachRocket) => (
-          <div className="eachRocket-Container" key={eachRocket.id}>
-            <div className="rocket-image">
-              <img src={eachRocket.flickr_images[0]} alt="Rocket" />
-            </div>
-            <div className="name_description">
-              <h1>{eachRocket.rocket_name}</h1>
-              <p>{eachRocket.description}</p>
-              <button
-                className="btn"
-                type="button"
-                onClick={() => handleClick(eachRocket.id)}
-              >
-                {
-                  eachRocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'
-                }
-              </button>
-            </div>
+      {selectors.map((eachRocket) => (
+        <div className="eachRocket-Container" key={eachRocket.id}>
+          <div className="rocket-image">
+            <img src={eachRocket.flickr_images[0]} alt="Rocket" />
           </div>
-        ))
-      }
+          <div className="name_description">
+            <h1>{eachRocket.rocket_name}</h1>
+            <p>{eachRocket.description}</p>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => handleClick(eachRocket.id)}
+            >
+              {eachRocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+            </button>
+          </div>
+        </div>
+      ))}
     </section>
   );
 }
