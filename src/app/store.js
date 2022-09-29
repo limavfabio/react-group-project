@@ -13,5 +13,6 @@ const store = configureStore({
 });
 
 store.dispatch(getRockets());
+// console.log(store.dispatch(reserved(1)));
 
 export default store;

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // Action Types
 const GET_ROCKETS = 'react-group-project/rockets/GET_ROCKETS';
+const RESERVED = 'react-group-project/rockets/RESERVED';
 const baseURL = 'https://api.spacexdata.com/v3/rockets';
 const rockets = [];
 
@@ -31,6 +32,12 @@ export const getRockets = () => async (dispatch) => {
   dispatch(fetchRocket(rocketArr));
 };
 
+// Reserve Action
+export const reserved = (payload) => ({
+  type: RESERVED,
+  payload,
+});
+
 // Rockets Reducer
 function rocketsReducer(state = rockets, action) {
 //   console.log(state);
@@ -39,6 +46,8 @@ function rocketsReducer(state = rockets, action) {
   switch (action.type) {
     case (GET_ROCKETS):
       return action.payload;
+    case (RESERVED):
+      return [...state.filter((id) => id !== action.payload)];
     default:
       return state;
   }
