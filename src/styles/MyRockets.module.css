@@ -2,15 +2,15 @@
   width: 100%;
 }
 
-.missionsContainer {
+.rocketsContainer {
   border: 1px solid gray;
   border-radius: 6px;
 }
 
-.mission {
+.rocket {
   padding: 2rem;
 }
 
-.mission:not(.mission:first-child) {
+.rocket:not(.rocket:first-child) {
   border-top: 1px solid gray;
 }

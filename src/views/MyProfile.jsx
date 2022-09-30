@@ -4,7 +4,7 @@ import MyRockets from '../components/MyRockets';
 
 function MyProfile() {
   return (
-    <div>
+    <div className="d-flex">
       <MyMissions />
       <MyRockets />
     </div>

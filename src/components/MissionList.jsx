@@ -22,7 +22,7 @@ const MissionList = () => {
       </thead>
       <tbody>
         {missions.map((e) => (
-          <tr className={style.tableRow} key={e.missions_id}>
+          <tr className={style.tableRow} key={e.mission_id}>
             <td>{e.mission_name}</td>
             <td>{e.description}</td>
             <td>

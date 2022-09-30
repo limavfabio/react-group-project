@@ -8,7 +8,7 @@ const MyMissions = () => {
     state.missions.filter((e) => e.reserved)
   );
   return (
-    <div>
+    <div className={style.container}>
       <h1>My Missions</h1>
       <div className={style.missionsContainer}>
         {joinedMissions.map((mission) => (
