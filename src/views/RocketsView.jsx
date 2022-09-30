@@ -9,8 +9,13 @@ function RocketsView() {
   const dispatch = useDispatch();
   const rockets = useSelector((state) => state.rockets);
   const handleClick = (id) => {
-    rockets.map((rocket) => rocket.id !== id
-      ? dispatch(cancelReservation(rocket.id)) : dispatch(reserved(rocket.id)));
+    rockets.map((rocket) => {
+      if (id === rocket.id) {
+        return rocket.reserved
+          ? dispatch(cancelReservation(rocket.id)) : dispatch(reserved(rocket.id));
+      }
+      return rocket.reserved;
+    });
   };
 
   return (
