@@ -1,48 +1,57 @@
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable camelcase */
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reserved } from '../redux/rockets/rockets';
+import { reserved, cancelReservation } from '../redux/rockets/rockets';
 
 function RocketsView() {
   const dispatch = useDispatch();
-  // const [rocket, setRocket] = useState(state);
-  const selectors = useSelector((state) => state.rockets);
+  const rockets = useSelector((state) => state.rockets);
   const handleClick = (id) => {
-    const newState = selectors.map((rocket) => {
-      if (rocket.id !== id) {
-        return rocket;
+    rockets.map((rocket) => {
+      if (id === rocket.id) {
+        return rocket.reserved
+          ? dispatch(cancelReservation(rocket.id)) : dispatch(reserved(rocket.id));
       }
-      return { ...rocket, reserved: true };
+      return rocket.reserved;
     });
-
-    // setRocket(() => ({
-    //   ...rocket,
-    //   newState,
-    // }));
-    dispatch(reserved(newState));
   };
-  // console.log(rocket);
 
   return (
     <section>
-      {selectors.map((eachRocket) => (
-        <div className="eachRocket-Container" key={eachRocket.id}>
-          <div className="rocket-image">
-            <img src={eachRocket.flickr_images[0]} alt="Rocket" />
+      {rockets.map((eachRocket) => {
+        const {
+          id,
+          flickr_images,
+          description,
+          rocket_name,
+          reserved
+        } = eachRocket;
+        return (
+          <div className="eachRocket-Container" key={id}>
+            <div className="rocket-image">
+              <img src={flickr_images} alt="Rocket" />
+            </div>
+            <div className="name_description">
+              <h1>{rocket_name}</h1>
+              <p>
+                {reserved && (
+                  <span className="spans">Reserved</span>
+                )}
+                {description}
+              </p>
+              <button
+                className={reserved ? 'cancel' : 'reserve'}
+                type="button"
+                onClick={() => handleClick(id)}
+              >
+                {reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+              </button>
+            </div>
           </div>
-          <div className="name_description">
-            <h1>{eachRocket.rocket_name}</h1>
-            <p>{eachRocket.description}</p>
-            <button
-              className="btn"
-              type="button"
-              onClick={() => handleClick(eachRocket.id)}
-            >
-              {eachRocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
-            </button>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </section>
   );
 }
