@@ -53,6 +53,11 @@ li {
   color: #fff;
 }
 
+.d-flex {
+  display: flex;
+  gap: 2rem;
+}
+
 .cancel {
   background-color: #fff;
   color: #6d757d;
