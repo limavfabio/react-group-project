@@ -1,0 +1,16 @@
+.container {
+  width: 100%;
+}
+
+.rocketsContainer {
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+
+.rocket {
+  padding: 2rem;
+}
+
+.rocket:not(.rocket:first-child) {
+  border-top: 1px solid gray;
+}

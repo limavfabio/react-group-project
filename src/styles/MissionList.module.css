@@ -1,0 +1,44 @@
+.tableRow:nth-child(odd) {
+  background-color: rgb(235, 235, 235);
+}
+
+table {
+  margin: 2rem auto;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+}
+
+.statusNotMember {
+  background-color: gray;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.statusActiveMember {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.joinBtn {
+  border: 2px solid gray;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.leaveBtn {
+  border: 2px solid red;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
